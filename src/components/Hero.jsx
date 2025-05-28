@@ -60,7 +60,7 @@ export function Hero() {
 
         {/* GitHub */}
         <a
-          href="https://github.com/klopesg95"
+          href="https://github.com/klopezg95"
           target="_blank"
           rel="noopener noreferrer"
           className="p-3 rounded-full hover:scale-90 hover:bg-blue-100 transition-all duration-300 ease-in-out"

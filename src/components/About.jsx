@@ -5,6 +5,7 @@ export function About() {
       className="min-h-screen flex flex-col justify-center px-[200px] py-20 bg-[#1C1C22] text-white"
       data-aos="fade-up"
       data-aos-duration="2000"
+      data-aos-delay="200"
     >
       <h2 className="text-5xl font-bold mb-6">About Me</h2>
       <p className="text-xl leading-8 max-w-3xl">
