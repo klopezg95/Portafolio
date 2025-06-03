@@ -4,7 +4,7 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="min-h-[60vh] px-[100px] py-24 bg-[#1C1C22] text-white flex flex-col items-center text-center gap-6"
+      className="min-h-[60vh] px-[100px] py-24 bg-[#1C1C22] text-white flex flex-col items-center text-center gap-6 text-xl"
     >
       <h2
         className="text-4xl font-bold"
@@ -15,14 +15,14 @@ export function Contact() {
       </h2>
 
       <p
-        className="text-gray-300 max-w-xl"
+        className="text-gray-300 max-w-xl "
         data-aos="fade-up"
         data-aos-duration="1000"
         data-aos-delay="200"
       >
-        Si te gustó mi trabajo y quieres contactarme, puedes escribirme a mi
-        correo o seguirme en redes. Estoy disponible para colaborar en proyectos
-        frontend, full stack o simplemente conectar.
+        If you enjoyed my work and would like to get in touch, feel free to
+        reach out via email or connect with me on social media. I'm open to
+        collaborating on projects, or simply networking.
       </p>
 
       <a
@@ -31,7 +31,7 @@ export function Contact() {
         data-aos="fade-up"
         data-aos-delay="400"
       >
-        Enviarme un correo
+        Contact me!
       </a>
 
       <div
@@ -40,7 +40,7 @@ export function Contact() {
         data-aos-delay="600"
       >
         <a
-          href="https://www.linkedin.com/in/tu-linkedin"
+          href="https://www.linkedin.com/in/klop95/"
           target="_blank"
           rel="noopener noreferrer"
           className="p-3 rounded-full hover:scale-90 hover:bg-blue-100 transition-all duration-300"
@@ -49,7 +49,7 @@ export function Contact() {
           <FaLinkedin />
         </a>
         <a
-          href="https://github.com/klopesg95"
+          href="https://github.com/klopezg95"
           target="_blank"
           rel="noopener noreferrer"
           className="p-3 rounded-full hover:scale-90 hover:bg-gray-200 transition-all duration-300"
