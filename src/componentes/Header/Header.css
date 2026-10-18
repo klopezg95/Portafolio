@@ -1,0 +1,41 @@
+.papaNav {
+	display: flex;
+	align-items: center;
+	height: 70px;
+	padding: 0 20px;
+}
+
+.Nombre {
+	margin-right: auto;
+	font-size: 30px;
+	animation: pulse;
+	animation-duration: 2s;
+	--animate-repeat: 2;
+	
+}
+
+.Container-Options {
+	display: flex;
+	list-style: none;
+	margin-right: 20px;
+	padding: 0;
+}
+
+.Container-Options li {
+	margin-left: 20px;
+	
+	
+}
+
+.Container-Options li a {
+
+	text-decoration: none;
+	padding: 5px;
+}
+
+.Container-Options li a:hover {
+	background-color: #005a9e;
+	animation: animate__shakeX;
+	animation-duration: 2s;
+	
+}
