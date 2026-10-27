@@ -14,7 +14,7 @@ function Section() {
 
       <div className="flex flex-col items-center w-full max-w-5xl mx-auto text-center">
         <span className="px-4 py-2 mb-8 font-sans text-sm tracking-wide text-blue-200 border rounded-full border-blue-400/30 bg-blue-400/10">
-          Based in Miami · Open to junior opportunities
+          Based in Miami · Open to opportunities
         </span>
 
         <h2 className="typing-effect max-w-full text-3xl sm:text-5xl font-['Lobster',cursive]">

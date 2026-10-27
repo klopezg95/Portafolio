@@ -6,11 +6,21 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
 }
 
 body {
   margin: 0;
+  background-color: #f5f7fb;
+  color: #1f2937;
+  font-family: 'Martian Mono', monospace;
+}
+
+html.dark body {
   background-color: #1d1d20;
   color: #d1d1d1;
-  font-family: 'Martian Mono', monospace;
 }

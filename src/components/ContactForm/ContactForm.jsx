@@ -1,4 +1,29 @@
+import { useEffect, useRef, useState } from "react";
+
 function ContactForm() {
+  const email = "klopezg95@gmail.com";
+  const [copyStatus, setCopyStatus] = useState("idle");
+  const timeoutRef = useRef(null);
+
+  useEffect(() => {
+    return () => clearTimeout(timeoutRef.current);
+  }, []);
+
+  const copyEmail = async () => {
+    clearTimeout(timeoutRef.current);
+
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopyStatus("copied");
+
+      timeoutRef.current = setTimeout(() => {
+        setCopyStatus("idle");
+      }, 3000);
+    } catch {
+      setCopyStatus("error");
+    }
+  };
+
   return (
     <section id="contact" className="px-6 py-20 font-sans scroll-mt-8">
       <div className="mx-auto max-w-4xl rounded-3xl border border-blue-400/20 bg-gradient-to-br from-blue-500/10 to-white/[0.02] px-6 py-12 text-center sm:px-12 sm:py-16">
@@ -11,30 +36,57 @@ function ContactForm() {
           learning, and build useful web applications with a team.
         </p>
 
-        <div className="flex flex-wrap justify-center gap-4 mt-9">
-          <a
-            href="mailto:klopezg95@gmail.com"
-            className="px-6 py-3 font-semibold text-white transition-colors bg-blue-600 rounded-lg shadow-lg shadow-blue-600/20 hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-400"
+        <p className="mt-8 text-lg font-medium text-blue-200 break-all select-all sm:text-2xl">
+          {email}
+        </p>
+
+        <div className="flex flex-wrap justify-center gap-4 mt-7">
+          <button
+            type="button"
+            onClick={copyEmail}
+            className="inline-flex min-w-[170px] items-center justify-center gap-2 rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white shadow-lg shadow-blue-600/20 transition-colors hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-400"
           >
-            Email me
-          </a>
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="w-5 h-5"
+            >
+              {copyStatus === "copied" ? (
+                <path d="m5 12 4 4L19 6" />
+              ) : (
+                <>
+                  <rect x="8" y="8" width="12" height="12" rx="2" />
+                  <path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" />
+                </>
+              )}
+            </svg>
+
+            {copyStatus === "copied" ? "Copied!" : "Copy email"}
+          </button>
 
           <a
             href="https://www.linkedin.com/in/klop95/"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 font-semibold text-gray-200 transition-colors border rounded-lg border-white/20 bg-white/5 hover:border-blue-400 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-400"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold text-gray-200 transition-colors border rounded-lg border-white/20 bg-white/5 hover:border-blue-400 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-400"
           >
-            Connect on LinkedIn
+            LinkedIn
+            <span aria-hidden="true">↗</span>
           </a>
         </div>
 
-        <a
-          href="mailto:klopezg95@gmail.com"
-          className="inline-block text-base text-gray-400 break-all transition-colors mt-7 hover:text-blue-300"
-        >
-          klopezg95@gmail.com
-        </a>
+        <p role="status" className="mt-4 min-h-[3rem] text-sm text-gray-400">
+          {copyStatus === "copied"
+            ? "Email copied. Paste it into your preferred email service."
+            : copyStatus === "error"
+              ? "Couldn't copy automatically. Select and copy the email above."
+              : "Copy my email or connect with me on LinkedIn."}
+        </p>
       </div>
     </section>
   );
