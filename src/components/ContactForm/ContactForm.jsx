@@ -26,17 +26,23 @@ function ContactForm() {
 
   return (
     <section id="contact" className="px-6 py-20 font-sans scroll-mt-8">
-      <div className="mx-auto max-w-4xl rounded-3xl border border-blue-400/20 bg-gradient-to-br from-blue-500/10 to-white/[0.02] px-6 py-12 text-center sm:px-12 sm:py-16">
-        <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+      <div
+        className="mx-auto max-w-4xl rounded-3xl border border-blue-200
+          bg-gradient-to-br from-blue-100/70 to-white
+          px-6 py-12 text-center
+          dark:border-blue-400/20 dark:from-blue-500/10 dark:to-white/[0.02]
+          sm:px-12 sm:py-16"
+      >
+        <h2 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl">
           Let's work together
         </h2>
 
-        <p className="max-w-xl mx-auto mt-6 text-lg leading-relaxed text-gray-300">
-          I'm looking for a junior frontend role where I can contribute, keep
-          learning, and build useful web applications with a team.
+        <p className="max-w-xl mx-auto mt-6 text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+          I'm looking for a frontend role where I can contribute, keep learning,
+          and build useful web applications with a team.
         </p>
 
-        <p className="mt-8 text-lg font-medium text-blue-200 break-all select-all sm:text-2xl">
+        <p className="mt-8 text-lg font-medium text-blue-700 break-all select-all dark:text-blue-200 sm:text-2xl">
           {email}
         </p>
 
@@ -44,7 +50,12 @@ function ContactForm() {
           <button
             type="button"
             onClick={copyEmail}
-            className="inline-flex min-w-[170px] items-center justify-center gap-2 rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white shadow-lg shadow-blue-600/20 transition-colors hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-400"
+            className="inline-flex min-w-[170px] items-center justify-center
+              gap-2 rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white
+              shadow-lg shadow-blue-600/20 transition-colors
+              hover:bg-blue-700 dark:hover:bg-blue-500
+              focus-visible:outline focus-visible:outline-2
+              focus-visible:outline-offset-4 focus-visible:outline-blue-500"
           >
             <svg
               aria-hidden="true"
@@ -73,14 +84,17 @@ function ContactForm() {
             href="https://www.linkedin.com/in/klop95/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold text-gray-200 transition-colors border rounded-lg border-white/20 bg-white/5 hover:border-blue-400 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-400"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold text-gray-800 transition-colors border border-gray-300 rounded-lg bg-white/70 hover:border-blue-500 hover:bg-blue-50 dark:border-white/20 dark:bg-white/5 dark:text-gray-200 dark:hover:border-blue-400 dark:hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500"
           >
             LinkedIn
             <span aria-hidden="true">↗</span>
           </a>
         </div>
 
-        <p role="status" className="mt-4 min-h-[3rem] text-sm text-gray-400">
+        <p
+          role="status"
+          className="mt-4 min-h-[3rem] text-sm text-gray-600 dark:text-gray-400"
+        >
           {copyStatus === "copied"
             ? "Email copied. Paste it into your preferred email service."
             : copyStatus === "error"

@@ -172,27 +172,43 @@ function CursorGlow() {
   return (
     <>
       {/* Halo azul o linterna durante la navegación. */}
+      {/* Ambas capas comparten la posición del cursor. */}
       <div
         ref={overlayRef}
         aria-hidden="true"
         className="fixed inset-0 z-50 pointer-events-none"
-        style={{
-          background: isFlashlight
-            ? `radial-gradient(
-                circle at var(--cursor-x, 50%) var(--cursor-y, 50%),
-                transparent 90px,
-                rgba(0, 0, 0, 0.3) 150px,
-                rgba(0, 0, 0, 0.85) 220px,
-                #000 280px
-              )`
-            : `radial-gradient(
-                320px circle at var(--cursor-x, 50%) var(--cursor-y, 50%),
-                rgba(96, 165, 250, 0.13),
-                rgba(59, 130, 246, 0.05) 45%,
-                transparent 75%
-              )`,
-        }}
-      />
+      >
+        {/* El halo azul desaparece suavemente al apagar la luz. */}
+        <div
+          className={`absolute inset-0 transition-opacity duration-[800ms] ease-in-out motion-reduce:transition-none ${
+            isFlashlight ? "opacity-0" : "opacity-100"
+          }`}
+          style={{
+            background: `radial-gradient(
+        320px circle at var(--cursor-x, 50%) var(--cursor-y, 50%),
+        rgba(96, 165, 250, 0.13),
+        rgba(59, 130, 246, 0.05) 45%,
+        transparent 75%
+      )`,
+          }}
+        />
+
+        {/* La oscuridad aparece progresivamente y conserva la linterna. */}
+        <div
+          className={`absolute inset-0 transition-opacity duration-[800ms] ease-in-out motion-reduce:transition-none ${
+            isFlashlight ? "opacity-100" : "opacity-0"
+          }`}
+          style={{
+            background: `radial-gradient(
+        circle at var(--cursor-x, 50%) var(--cursor-y, 50%),
+        transparent 90px,
+        rgba(0, 0, 0, 0.3) 150px,
+        rgba(0, 0, 0, 0.85) 220px,
+        #000 280px
+      )`,
+          }}
+        />
+      </div>
 
       {/* Oscuridad inicial que desaparece gradualmente. */}
       <div

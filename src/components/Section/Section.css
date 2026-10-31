@@ -1,23 +1,7 @@
-
-.section {
-
-	height: 72vh;
-	color: #fff;
-	padding: 100px 0;
-	text-align: center;
-}
-
-.container-section{
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin-top: 10%;
-}
-
 .typing-effect {
   white-space: nowrap;
   overflow: hidden;
-  border-right: 4px solid #fff;
+  border-right: 4px solid currentColor;
   width: 14ch;
   max-width: 100%;
 
@@ -56,24 +40,4 @@
     width: auto;
     white-space: normal;
   }
-}
-
-
-
-.container-section p {
-	font-size: 1.5rem;
-	margin-top: 20px;
-	line-height: 2;
-
-}
-
-.section img {
-	margin-top: 20px;
-	max-width: 100%;
-	border-radius: 50%;
-	transition: transform 0.5s;
-}
-
-.section img:hover {
-	transform: rotateY(180deg);
 }

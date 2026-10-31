@@ -47,25 +47,25 @@ function Projects() {
   return (
     <section
       id="projects"
-      className="px-6 py-20 overflow-hidden font-sans text-gray-300 scroll-mt-8"
+      className="px-6 py-20 overflow-hidden font-sans text-gray-700 scroll-mt-8 dark:text-gray-300"
     >
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 text-center">
-          <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+          <h2 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl">
             Selected projects
           </h2>
 
-          <p className="max-w-2xl mx-auto mt-5 text-lg leading-relaxed text-gray-400">
+          <p className="max-w-2xl mx-auto mt-5 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
             Explore a selection of applications I've built with React.
           </p>
 
-          <p className="hidden mt-4 text-sm text-blue-300 lg:block">
+          <p className="hidden mt-4 text-sm text-blue-700 dark:text-blue-300 lg:block">
             Hover over a card or use Tab to explore it.
           </p>
         </div>
 
         <div className="relative isolate flex flex-col items-center gap-6 lg:block lg:h-[780px]">
-          {/* Cartas decorativas: no reciben clics ni foco. */}
+          {/* Cartas decorativas. */}
           <div
             aria-hidden="true"
             className="absolute inset-0 z-0 hidden pointer-events-none select-none lg:block"
@@ -73,32 +73,37 @@ function Projects() {
             {decorativePositions.map((position, index) => (
               <div
                 key={position}
-                className={`absolute left-1/2 top-12 h-[510px] w-[300px] rounded-2xl border border-blue-300/20 bg-[#111722] p-3 shadow-[0_20px_50px_rgba(0,0,0,0.5)] xl:w-[320px] ${position}`}
+                className={`absolute left-1/2 top-12 h-[510px] w-[300px]
+                  rounded-2xl border border-blue-200 bg-[#e8eef9] p-3
+                  shadow-[0_20px_50px_rgba(30,58,138,0.12)]
+                  dark:border-blue-300/20 dark:bg-[#111722]
+                  dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)]
+                  xl:w-[320px] ${position}`}
                 style={{ zIndex: index % 2 }}
               >
                 <div
-                  className="relative flex items-center justify-center h-full overflow-hidden border rounded-xl border-blue-300/15"
+                  className="relative flex items-center justify-center h-full overflow-hidden border rounded-xl border-blue-300/50 dark:border-blue-300/15"
                   style={{
                     backgroundImage: `
                       repeating-linear-gradient(
                         45deg,
                         transparent,
                         transparent 12px,
-                        rgba(96, 165, 250, 0.06) 12px,
-                        rgba(96, 165, 250, 0.06) 13px
+                        rgba(96, 165, 250, 0.12) 12px,
+                        rgba(96, 165, 250, 0.12) 13px
                       ),
                       repeating-linear-gradient(
                         -45deg,
                         transparent,
                         transparent 12px,
-                        rgba(96, 165, 250, 0.06) 12px,
-                        rgba(96, 165, 250, 0.06) 13px
+                        rgba(96, 165, 250, 0.12) 12px,
+                        rgba(96, 165, 250, 0.12) 13px
                       )
                     `,
                   }}
                 >
-                  <div className="flex h-24 w-24 rotate-45 items-center justify-center rounded-xl border border-blue-300/20 bg-[#111722]">
-                    <span className="text-4xl -rotate-45 text-blue-300/30">
+                  <div className="flex h-24 w-24 rotate-45 items-center justify-center rounded-xl border border-blue-300/50 bg-[#e8eef9] dark:border-blue-300/20 dark:bg-[#111722]">
+                    <span className="text-4xl -rotate-45 text-blue-500/50 dark:text-blue-300/30">
                       ✦
                     </span>
                   </div>
@@ -107,7 +112,7 @@ function Projects() {
             ))}
           </div>
 
-          {/* Proyectos reales: siempre delante del relleno. */}
+          {/* Proyectos reales. */}
           {projectsData.map((project, index) => (
             <div
               key={project.repository}
